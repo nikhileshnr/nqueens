@@ -1,0 +1,52 @@
+/* src/NQueensVisualizer.css */
+.visualizer-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.message-log {
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.8); /* Updated background to a semi-transparent white */
+  color: #333; /* Dark gray text for better readability */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.message-log h2 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+  color: #4facfe; /* Heading color matching the new button color */
+}
+
+.message-log ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.message-log li {
+  margin: 5px 0;
+  padding: 5px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.3); /* Updated border color to match text color */
+}
+
+.message-log .placed {
+  color: #4caf50; /* Updated color to a more subtle green */
+}
+
+.message-log .removed {
+  color: #f44336; /* Updated color to a more subtle red */
+}
