@@ -4,49 +4,222 @@
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: wrap;
+  max-height: 95vh;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 95vh;
+  overflow: hidden;
+}
+
+.board-and-log {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.view-mode-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.view-mode-selector button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-mode-selector button.active {
+  background-color: #4facfe;
+  color: white;
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.4);
+}
+
+.view-mode-selector button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.board-size-controls, .playback-controls, .step-controls, .solution-controls, .solution-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.step-controls span, .solution-nav span {
+  margin: 0 10px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.animation-toggle {
+  margin-left: 10px;
 }
 
 .message-log {
-  max-width: 300px;
-  background: rgba(255, 255, 255, 0.8); /* Updated background to a semi-transparent white */
-  color: #333; /* Dark gray text for better readability */
+  max-width: 250px;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
 }
 
 .message-log h2 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
-  color: #4facfe; /* Heading color matching the new button color */
+  color: #4facfe;
+  margin-bottom: 5px;
 }
 
 .message-log ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  max-height: 400px;
+  max-height: 350px;
   overflow-y: auto;
+  flex-grow: 1;
 }
 
 .message-log li {
-  margin: 5px 0;
+  margin: 3px 0;
   padding: 5px;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.3); /* Updated border color to match text color */
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+  font-size: 13px;
+}
+
+.message-log li:hover {
+  background-color: rgba(79, 172, 254, 0.1);
 }
 
 .message-log .placed {
-  color: #4caf50; /* Updated color to a more subtle green */
+  color: #4caf50;
+  border-left: 3px solid #4caf50;
 }
 
 .message-log .removed {
-  color: #f44336; /* Updated color to a more subtle red */
+  color: #f44336;
+  border-left: 3px solid #f44336;
+}
+
+.message-log .solution {
+  color: #2196F3;
+  font-weight: bold;
+  border-left: 3px solid #2196F3;
+}
+
+.message-log .more {
+  color: #777;
+  text-align: center;
+  font-style: italic;
+}
+
+.solution-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.no-solutions {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
+  color: #f44336;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1024px) {
+  .visualizer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .board-and-log {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .message-log {
+    max-width: 90%;
+    width: 100%;
+    margin-top: 10px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .controls button, .solution-controls button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .step-controls, .solution-nav {
+    gap: 5px;
+  }
+  
+  .board-and-log {
+    flex-direction: column;
+  }
+  
+  .message-log {
+    max-height: 150px;
+  }
+
+  .step-controls span, .solution-nav span {
+    font-size: 12px;
+  }
+
+  input[type="range"] {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .board-size-controls, .playback-controls, .step-controls {
+    gap: 5px;
+  }
+  
+  .step-controls span, .solution-nav span {
+    margin: 3px 0;
+  }
 }

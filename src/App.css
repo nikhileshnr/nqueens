@@ -2,39 +2,75 @@
 .App {
   text-align: center;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Updated background colors */
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #333; /* Darker text for better contrast */
+  justify-content: flex-start;
+  padding-top: 10px;
+  color: #333;
+  overflow: hidden;
+}
+
+.App h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 24px;
+}
+
+.App p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  max-width: 600px;
 }
 
 .controls {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 button {
-  margin-right: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+  margin-right: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background: #4facfe; /* Updated button background color */
+  background: #4facfe;
   color: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: #00f2fe; /* Updated hover background color */
-  transform: scale(1.05);
+  background: #00f2fe;
+  transform: scale(1.03);
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
 }
 
 input[type="range"] {
-  margin-left: 10px;
+  margin-left: 8px;
   vertical-align: middle;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .App h1 {
+    font-size: 20px;
+  }
+
+  .App p {
+    font-size: 12px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 3px;
+  }
 }
